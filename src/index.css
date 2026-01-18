@@ -4,17 +4,31 @@
 @theme {
   --font-sans: 'Inter', sans-serif;
 
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-  --color-primary-950: #172554;
+  --color-sand-50: #F9F8F6;
+  --color-sand-100: #EFE9E3;
+  --color-sand-200: #D9CFC7;
+  --color-sand-300: #C9B59C;
+  --color-sand-400: #bfa588;
+  --color-sand-500: #a88d6f;
+  --color-sand-600: #8f7457;
+  --color-sand-700: #755c42;
+  --color-sand-800: #5e4631;
+  --color-sand-900: #4a3523;
+  --color-sand-950: #2b1d12;
+
+  /* Aliasing primary to sand for consistency */
+  --color-primary-50: var(--color-sand-50);
+  --color-primary-100: var(--color-sand-100);
+  --color-primary-200: var(--color-sand-200);
+  --color-primary-300: var(--color-sand-300);
+  --color-primary-400: var(--color-sand-400);
+  --color-primary-500: var(--color-sand-500);
+  --color-primary-600: var(--color-sand-600);
+  /* Slightly darker for better text contrast if needed */
+  --color-primary-700: var(--color-sand-700);
+  --color-primary-800: var(--color-sand-800);
+  --color-primary-900: var(--color-sand-900);
+  --color-primary-950: var(--color-sand-950);
 
   --animate-spin-slow: spin 3s linear infinite;
 }
@@ -33,7 +47,7 @@
   }
 
   body {
-    @apply bg-white text-gray-950 dark:bg-gray-950 dark:text-gray-50 antialiased;
+    @apply bg-sand-50 text-gray-950 dark:bg-gray-950 dark:text-gray-50 antialiased;
   }
 }
 

@@ -42,7 +42,7 @@ const Hero = () => {
                     transition={{ duration: 0.5, delay: 0.1 }}
                 >
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
-                        Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-primary-600 dark:from-blue-400 dark:to-primary-400">Fiman</span>
+                        Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-primary-600 dark:from-blue-400 dark:to-primary-400">Firman</span>
                     </h1>
                 </motion.div>
 

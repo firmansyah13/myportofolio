@@ -7,15 +7,35 @@ const skills = [
     },
     {
         category: "Backend",
-        items: ["Node.js", "Express.js", "Sequelize", "PHP", "Laravel", "Codeigniter"],
+        items: ["Node.js", "Express.js", "PHP", "Laravel", "Codeigniter"],
     },
     {
-        category: "Database",
-        items: ["MongoDB", "MySQL", "Redis"],
+        category: "Database and ORM",
+        items: ["MongoDB", "MySQL", "Sequelize", "Eloquent", "Prisma"],
     },
     {
-        category: "Tools & DropOps",
-        items: ["Git", "Docker", "GCP", "CI/CD", "Linux"],
+        category: "Tools",
+        items: ["Git", "Linux"],
+    },
+    {
+        category: "Infrastructure",
+        items: ["Proxmox VE", "Redis"],
+    },
+    {
+        category: "Domains",
+        items: ["Healthcare", "Fintech", "Enterprise"],
+    },
+    {
+        category: "CI/CD",
+        items: ["Gitlab", "GitHub Actions", "Automated Deploy"],
+    },
+    {
+        category: "Containerization",
+        items: ["Docker", "Docker Compose"],
+    },
+    {
+        category: "Security & Auth",
+        items: ["JWT", "Google Auth", "OAuth"],
     },
 ];
 
