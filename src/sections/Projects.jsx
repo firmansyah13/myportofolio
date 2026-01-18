@@ -6,31 +6,31 @@ const projects = [
         title: "Zetup",
         description: "Full-stack application built with Vue.js and Express.js.",
         tech: ["Vue.js", "Express.js"],
-        links: { demo: "#", code: "#" },
+        links: { demo: "https://fe-zetup.indobsd.id" },
     },
     {
         title: "Web st24",
         description: "Web application developed using Next.js framework.",
         tech: ["Next.js"],
-        links: { demo: "#", code: "#" },
+        links: { demo: "https://www.st24.co.id/" },
     },
     {
         title: "Closebuy CMS",
         description: "Content Management System for Closebuy. Built with CodeIgniter 4.",
         tech: ["CodeIgniter 4", "PHP"],
-        links: { demo: "https://closebuy.colony.id/cms/login", code: "https://gitlab.com/gumcodeindonesia/development/web/closebuy" },
+        links: { demo: "https://closebuy.colony.id/cms/login", },
     },
     {
         title: "New Noxis",
         description: "Legacy server application managed on Telkomsat infrastructure.",
         tech: ["Laravel 5"],
-        links: { demo: "#", code: "#" },
+        links: { demo: "#" },
     },
     {
         title: "Celtic Connection",
         description: "Web platform developed for Celtic Connection.",
         tech: ["CodeIgniter 4"],
-        links: { demo: "#", code: "#" },
+        links: { demo: "#" },
     },
 ];
 
@@ -70,11 +70,6 @@ const Projects = () => {
                                     {project.links.demo !== "#" && (
                                         <a href={project.links.demo} className="p-2 bg-white rounded-full text-gray-900 hover:bg-gray-200 transition-colors" title="View Demo/Live">
                                             <ExternalLink size={20} />
-                                        </a>
-                                    )}
-                                    {project.links.code !== "#" && (
-                                        <a href={project.links.code} className="p-2 bg-white rounded-full text-gray-900 hover:bg-gray-200 transition-colors" title="View Code">
-                                            <Github size={20} />
                                         </a>
                                     )}
                                 </div>

@@ -1,17 +1,28 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import wayangImage from "../assets/wayang.png";
 
 const Hero = () => {
     return (
         <section
             id="home"
-            className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-gradient-to-br from-white to-gray-50 dark:from-gray-950 dark:to-gray-900"
+            className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-white dark:bg-gray-950"
         >
             {/* Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-blue-500/10 blur-[120px]"></div>
-                <div className="absolute top-[20%] -right-[10%] w-[40%] h-[40%] rounded-full bg-purple-500/10 blur-[120px]"></div>
-                <div className="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] rounded-full bg-indigo-500/10 blur-[120px]"></div>
+            <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center">
+                <motion.img
+                    src={wayangImage}
+                    alt="Wayang Gunungan"
+                    className="w-[80%] md:w-[50%] max-w-[600px] h-auto opacity-10 dark:opacity-5 object-contain"
+                    animate={{
+                        y: [0, -30, 0],
+                    }}
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -72,13 +83,13 @@ const Hero = () => {
                     transition={{ duration: 0.5, delay: 0.5 }}
                     className="mt-16 flex items-center justify-center gap-6"
                 >
-                    <a href="#" className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors">
+                    <a href="https://github.com/firmansyah13" className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors">
                         <Github size={24} />
                     </a>
-                    <a href="#" className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors">
+                    <a href="https://www.linkedin.com/in/em-firmansyah-asyono-putro-0752a5185" className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors">
                         <Linkedin size={24} />
                     </a>
-                    <a href="mailto:hello@example.com" className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors">
+                    <a href="mailto:firmansyah13019@gmail.com" className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors">
                         <Mail size={24} />
                     </a>
                 </motion.div>

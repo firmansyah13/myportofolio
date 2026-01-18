@@ -1,7 +1,42 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+    const form = useRef();
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(false);
+        setSuccess(false);
+
+        // TODO: Replace with your actual EmailJS credentials
+        emailjs
+            .sendForm(
+                "service_0wbeapc",
+                "template_urgba7o",
+                form.current,
+                "n575PmKlyxFUcCb7q"
+            )
+            .then(
+                (result) => {
+                    setSuccess(true);
+                    setLoading(false);
+                    form.current.reset();
+                    setTimeout(() => setSuccess(false), 5000);
+                },
+                (error) => {
+                    setError(true);
+                    setLoading(false);
+                    console.error("EmailJS Error:", error.text);
+                }
+            );
+    };
     return (
         <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,13 +108,15 @@ const Contact = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="bg-white dark:bg-gray-950 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800"
                     >
-                        <form className="space-y-6">
+                        <form ref={form} onSubmit={sendEmail} className="space-y-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                     Name
                                 </label>
                                 <input
                                     type="text"
+                                    name="user_name"
+                                    required
                                     className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                                     placeholder="Your Name"
                                 />
@@ -90,6 +127,8 @@ const Contact = () => {
                                 </label>
                                 <input
                                     type="email"
+                                    name="user_email"
+                                    required
                                     className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                                     placeholder="your@email.com"
                                 />
@@ -99,6 +138,8 @@ const Contact = () => {
                                     Message
                                 </label>
                                 <textarea
+                                    name="message"
+                                    required
                                     rows={4}
                                     className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                                     placeholder="Your message..."
@@ -106,10 +147,28 @@ const Contact = () => {
                             </div>
                             <button
                                 type="submit"
-                                className="w-full py-3 px-6 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/20"
+                                disabled={loading}
+                                className="w-full py-3 px-6 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/20 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
                             >
-                                Send Message
+                                {loading ? (
+                                    <span className="flex items-center gap-2">
+                                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                        Sending...
+                                    </span>
+                                ) : (
+                                    "Send Message"
+                                )}
                             </button>
+                            {success && (
+                                <p className="text-green-600 text-sm text-center">
+                                    Message sent successfully!
+                                </p>
+                            )}
+                            {error && (
+                                <p className="text-red-600 text-sm text-center">
+                                    Failed to send message. Please try again or contact via email directly.
+                                </p>
+                            )}
                         </form>
                     </motion.div>
                 </div>
