@@ -13,7 +13,7 @@ const Hero = () => {
                 <motion.img
                     src={wayangImage}
                     alt="Wayang Gunungan"
-                    className="w-[80%] md:w-[50%] max-w-[600px] h-auto opacity-10 dark:opacity-5 object-contain"
+                    className="w-[80%] md:w-[50%] max-w-xl h-auto opacity-10 dark:opacity-5 object-contain"
                     animate={{
                         y: [0, -30, 0],
                     }}

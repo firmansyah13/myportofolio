@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import profileImage from "../assets/profile.jpg";
 
 const About = () => {
     return (
@@ -26,8 +27,20 @@ const About = () => {
                         className="relative"
                     >
                         {/* Placeholder for Profile Image or Illustration */}
-                        <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-gray-200 dark:border-gray-800 flex items-center justify-center overflow-hidden">
-                            <span className="text-gray-400 dark:text-gray-600 text-lg">Profile Image Placeholder</span>
+                        <div className="aspect-square rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-gray-200 dark:border-gray-800 flex items-center justify-center overflow-hidden">
+                            <img
+                                src={profileImage}
+                                alt="Profile"
+                                className="text-gray-400 dark:text-gray-600 text-lg"
+                                animate={{
+                                    y: [0, -30, 0],
+                                }}
+                                transition={{
+                                    duration: 8,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
                         </div>
                         <div className="absolute -z-10 -bottom-6 -right-6 w-full h-full bg-blue-100 dark:bg-blue-900/20 rounded-2xl"></div>
                     </motion.div>
